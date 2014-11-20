@@ -21,6 +21,7 @@ namespace cqrs.university.tests.courses
             courseId = Guid.NewGuid();
         }
 
+        [Test]
         public void WhenOpenCourse()
         {
             Test(

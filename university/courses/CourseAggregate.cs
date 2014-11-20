@@ -23,5 +23,10 @@ namespace university.courses
                 Type = c.Type
             };
         }
+
+        public void Apply(CourseOpened e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
