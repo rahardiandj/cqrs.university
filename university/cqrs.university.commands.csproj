@@ -39,7 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="courses\CourseAggregate.cs" />
+    <Compile Include="courses\OpenCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\cqrs.university.events\cqrs.university.events.csproj">
+      <Project>{76b65e39-d76c-4a95-95c3-bedf71a6c03b}</Project>
+      <Name>cqrs.university.events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Edument.CQRS\Edument.CQRS.csproj">
+      <Project>{d2bab57d-225d-4f4c-9410-ed39495a8fe0}</Project>
+      <Name>Edument.CQRS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
