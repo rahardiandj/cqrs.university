@@ -1,7 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "university", "university\university.csproj", "{4A1C1878-A0F7-498F-B2F7-6838CECD5C8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.commands", "university\cqrs.university.commands.csproj", "{4A1C1878-A0F7-498F-B2F7-6838CECD5C8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edument.CQRS", "Edument.CQRS\Edument.CQRS.csproj", "{D2BAB57D-225D-4F4C-9410-ED39495A8FE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.events", "cqrs.university.events\cqrs.university.events.csproj", "{76B65E39-D76C-4A95-95C3-BEDF71A6C03B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.tests", "cqrs.university.tests\cqrs.university.tests.csproj", "{1FEA44B3-393B-49A1-BA38-309B0ED50EFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.queries", "cqrs.university.queries\cqrs.university.queries.csproj", "{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +21,22 @@ Global
 		{4A1C1878-A0F7-498F-B2F7-6838CECD5C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A1C1878-A0F7-498F-B2F7-6838CECD5C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A1C1878-A0F7-498F-B2F7-6838CECD5C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2BAB57D-225D-4F4C-9410-ED39495A8FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2BAB57D-225D-4F4C-9410-ED39495A8FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2BAB57D-225D-4F4C-9410-ED39495A8FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2BAB57D-225D-4F4C-9410-ED39495A8FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76B65E39-D76C-4A95-95C3-BEDF71A6C03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B65E39-D76C-4A95-95C3-BEDF71A6C03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B65E39-D76C-4A95-95C3-BEDF71A6C03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B65E39-D76C-4A95-95C3-BEDF71A6C03B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FEA44B3-393B-49A1-BA38-309B0ED50EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEA44B3-393B-49A1-BA38-309B0ED50EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEA44B3-393B-49A1-BA38-309B0ED50EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEA44B3-393B-49A1-BA38-309B0ED50EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
