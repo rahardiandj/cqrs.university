@@ -1,0 +1,7 @@
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\bin\Debug\Edument.CQRS.dll
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\bin\Debug\Edument.CQRS.pdb
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\bin\Debug\nunit.framework.dll
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\bin\Debug\nunit.framework.xml
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\obj\Debug\Edument.CQRS.csprojResolveAssemblyReference.cache
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\obj\Debug\Edument.CQRS.dll
+C:\Users\RahardianDJ\Documents\Visual Studio 2012\InforsysProjects\CQRS.Cafe\Edument.CQRS\obj\Debug\Edument.CQRS.pdb
