@@ -14,11 +14,13 @@ namespace cqrs.university.tests.courses
     public class UniversityTests : BDDTest<CourseAggregate>
     {
         private Guid courseId;
+        private string courseCode;
 
         [SetUp]
         public void SetUp()
         {
             courseId = Guid.NewGuid();
+            courseCode = "CS5032";
         }
 
         [Test]
@@ -41,6 +43,56 @@ namespace cqrs.university.tests.courses
                         Type = "Mandatory"
                     }
                     )
+                );
+        }
+
+        [Test]
+        public void WhenTakeCourse()
+        {
+            Test(
+                    Given(new CourseOpened
+                    {
+                        Id = courseId,
+                        Credit = 4,
+                        Name = "Calculus",
+                        Type = "Mandatory"
+                    }
+                    ),
+                    When(new TakeCourse
+                    {
+                        Code = courseCode,
+                        Name = "Calculus",
+                        Credit = 4,
+                        Description = "Foundation of Calculus",
+                        Lecturer = "David Teece"
+                    }),
+                    Then(new CourseTaken
+                    {
+                        Code = courseCode,
+                        Name = "Calculus",
+                        Credit = 4,
+                        Description = "Foundation of Calculus",
+                        Lecturer = "David Teece"
+                    }
+                    )
+                );
+        }
+
+        [Test]
+        public void WhenTakeClosedCourse()
+        {
+            Test(
+                    Given(
+                    ),
+                    When(new TakeCourse
+                    {
+                        Code = courseCode,
+                        Name = "Calculus",
+                        Credit = 4,
+                        Description = "Foundation of Calculus",
+                        Lecturer = "David Teece"
+                    }),
+                    ThenFailWith<CourseNotOpen>()
                 );
         }
     }

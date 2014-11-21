@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="courses\CourseInfo.cs" />
     <Compile Include="courses\CourseOpened.cs" />
+    <Compile Include="courses\CourseTaken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

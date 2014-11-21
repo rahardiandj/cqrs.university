@@ -10,8 +10,11 @@ using Edument.CQRS;
 namespace university.courses
 {
     public class CourseAggregate : Aggregate,
-        IHandleCommand<OpenCourse>
+        IHandleCommand<OpenCourse>,
+        IHandleCommand<TakeCourse>,
+        IApplyEvent<CourseOpened>
     {
+        private bool open;
 
         public IEnumerable Handle(OpenCourse c)
         {
@@ -24,9 +27,23 @@ namespace university.courses
             };
         }
 
+        public IEnumerable Handle(TakeCourse c)
+        {
+            if (!open)
+                throw new CourseNotOpen();
+            yield return new CourseTaken
+            {
+                Code = c.Code,
+                Credit = c.Credit,
+                Name = c.Name,
+                Description = c.Description,
+                Lecturer = c.Lecturer
+            };
+        }
+
         public void Apply(CourseOpened e)
         {
-            throw new NotImplementedException();
+            open = true;
         }
     }
 }
