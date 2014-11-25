@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="courses\CancelCourse.cs" />
+    <Compile Include="courses\CloseCourse.cs" />
     <Compile Include="courses\CourseAggregate.cs" />
     <Compile Include="courses\Exceptions.cs" />
+    <Compile Include="courses\ModifyCoursePlan.cs" />
     <Compile Include="courses\OpenCourse.cs" />
     <Compile Include="courses\TakeCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cqrs.university.events.courses
+namespace university.courses
 {
-    public class CourseInfo
+    public class CancelCourse
     {
         public string Code { get; set; }
         public string Name { get; set; }
         public int Credit { get; set; }
         public string Lecturer { get; set; }
         public string Description { get; set; }
-        public bool IsAdded { get; set; }
     }
 }
