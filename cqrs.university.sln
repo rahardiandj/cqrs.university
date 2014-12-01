@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.tests", "cq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.queries", "cqrs.university.queries\cqrs.university.queries.csproj", "{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cqrs.university.api", "cqrs.university.api\cqrs.university.api\cqrs.university.api.csproj", "{D84075BC-FD40-4096-B720-971B975CDC4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CC7A0D5-CD71-4BCD-BB8B-3491EEB2C492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D84075BC-FD40-4096-B720-971B975CDC4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D84075BC-FD40-4096-B720-971B975CDC4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D84075BC-FD40-4096-B720-971B975CDC4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D84075BC-FD40-4096-B720-971B975CDC4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
