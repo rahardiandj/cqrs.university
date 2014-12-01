@@ -12,6 +12,7 @@ namespace cqrs.university.api
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            Domain.Setup();
         }
     }
 }

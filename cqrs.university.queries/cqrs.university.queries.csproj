@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="courses\IOpenCourseQueries.cs" />
     <Compile Include="courses\OpenCourseQueries.cs" />
+    <Compile Include="models\CourseItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CoursesController.cs" />
+    <Compile Include="Domain.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -92,8 +94,25 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\cqrs.university.events\cqrs.university.events.csproj">
+      <Project>{76b65e39-d76c-4a95-95c3-bedf71a6c03b}</Project>
+      <Name>cqrs.university.events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\cqrs.university.queries\cqrs.university.queries.csproj">
+      <Project>{0cc7a0d5-cd71-4bcd-bb8b-3491eeb2c492}</Project>
+      <Name>cqrs.university.queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Edument.CQRS\Edument.CQRS.csproj">
+      <Project>{d2bab57d-225d-4f4c-9410-ed39495a8fe0}</Project>
+      <Name>Edument.CQRS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\university\cqrs.university.commands.csproj">
+      <Project>{4a1c1878-a0f7-498f-b2f7-6838cecd5c8d}</Project>
+      <Name>cqrs.university.commands</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
