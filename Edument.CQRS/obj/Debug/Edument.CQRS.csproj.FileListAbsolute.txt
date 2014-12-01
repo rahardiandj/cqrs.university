@@ -12,3 +12,9 @@ E:\Inforsys\Latihan\Cqrs\cqrs.university\Edument.CQRS\bin\Debug\nunit.framework.
 E:\Inforsys\Latihan\Cqrs\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.csprojResolveAssemblyReference.cache
 E:\Inforsys\Latihan\Cqrs\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.dll
 E:\Inforsys\Latihan\Cqrs\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.pdb
+D:\Test CQRS\cqrs.university\Edument.CQRS\bin\Debug\Edument.CQRS.dll
+D:\Test CQRS\cqrs.university\Edument.CQRS\bin\Debug\Edument.CQRS.pdb
+D:\Test CQRS\cqrs.university\Edument.CQRS\bin\Debug\nunit.framework.xml
+D:\Test CQRS\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.csprojResolveAssemblyReference.cache
+D:\Test CQRS\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.dll
+D:\Test CQRS\cqrs.university\Edument.CQRS\obj\Debug\Edument.CQRS.pdb
