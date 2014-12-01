@@ -14,19 +14,25 @@ namespace cqrs.university.tests.courses
     public class UniversityTests : BDDTest<CourseAggregate>
     {
         private Guid courseId;
+        private Guid testId;
         private Guid coursePlanId;
         private string courseCode;
         private string courseCode2;
         private CourseInfo testCourse1;
         private CourseInfo testCourse2;
+        private List<CourseInfo> listCourses;
+        private List<CourseInfo> listCourses2;
+        private List<CourseInfo> listCourses3;
 
         [SetUp]
         public void SetUp()
         {
             coursePlanId = Guid.NewGuid();
             courseId = Guid.NewGuid();
+            testId = Guid.NewGuid();
             courseCode = "CS5032";
             courseCode2 = "IF3045";
+            
             testCourse1 = new CourseInfo
             {
                 Code = courseCode,
@@ -45,6 +51,13 @@ namespace cqrs.university.tests.courses
                 Lecturer = "Michael Page",
                 IsAdded = false,
             };
+            listCourses = new List<CourseInfo>();
+            listCourses.Add(testCourse1);
+
+            listCourses2 = new List<CourseInfo>();
+            listCourses2.Add(testCourse2);
+
+            listCourses3 = new List<CourseInfo> { testCourse1, testCourse2 };
         }
 
         [Test]
@@ -54,14 +67,14 @@ namespace cqrs.university.tests.courses
                     Given(),
                     When(new OpenCourse
                     {
-                        Id = courseId,
+                        Code = courseCode,
                         Name = "Calculus",
                         Credit = 4,
                         Type = "Mandatory"
                     }),
                     Then(new CourseOpened
                     {
-                        Id = courseId,
+                        Code = courseCode,
                         Name = "Calculus",
                         Credit = 4,
                         Type = "Mandatory"
@@ -76,7 +89,7 @@ namespace cqrs.university.tests.courses
             Test(
                     Given(new CourseOpened
                     {
-                        Id = courseId,
+                        Code = courseCode,
                         Credit = 4,
                         Name = "Calculus",
                         Type = "Mandatory"
@@ -84,19 +97,13 @@ namespace cqrs.university.tests.courses
                     ),
                     When(new TakeCourse
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses
                     }),
                     Then(new CourseTaken
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses
                     }
                     )
                 );
@@ -110,11 +117,8 @@ namespace cqrs.university.tests.courses
                     ),
                     When(new TakeCourse
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses
                     }),
                     ThenFailWith<CourseNotOpen>()
                 );
@@ -126,7 +130,7 @@ namespace cqrs.university.tests.courses
             Test(
                     Given(new CourseOpened
                     {
-                        Id = courseId,
+                        Code = courseCode,
                         Credit = 4,
                         Name = "Calculus",
                         Type = "Mandatory"
@@ -173,7 +177,7 @@ namespace cqrs.university.tests.courses
             Test(
                     Given(new CourseOpened
                     {
-                        Id = courseId,
+                        Code = courseCode2,
                         Credit = 4,
                         Name = "Calculus",
                         Type = "Mandatory"
@@ -181,19 +185,13 @@ namespace cqrs.university.tests.courses
                     ),
                     When(new CancelCourse
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses2
                     }),
                     Then(new CourseCanceled
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses2
                     }
                     )
                 );
@@ -207,47 +205,45 @@ namespace cqrs.university.tests.courses
                     ),
                     When(new CancelCourse
                     {
-                        Code = courseCode,
-                        Name = "Calculus",
-                        Credit = 4,
-                        Description = "Foundation of Calculus",
-                        Lecturer = "David Teece"
+                        Id = testId,
+                        Items = listCourses2
                     }),
                     ThenFailWith<CourseNotOpen>()
                 );
         }
 
         [Test]
-        public void CanPlaceFoodAndDrinkOrder()
+        public void CanModifyCourses()
         {
             Test(
                 Given(new CourseOpened
                 {
-                    Id = courseId,
+                    Code = courseCode,
                     Credit = 4,
                     Name = "Calculus",
                     Type = "Mandatory"
-                }),
+                }, new CourseOpened
+                {
+                    Code = courseCode2,
+                    Credit = 4,
+                    Name = "Calculus",
+                    Type = "Mandatory"
+                }
+                
+                ),
                 When(new ModifyCoursePlan
                 {
-                    Id = coursePlanId,
+                    Id = testId,
+                    StudentId = "113080003",
                     Items = new List<CourseInfo> { testCourse1, testCourse2 }
                 }),
                 Then(new CourseTaken
                 {
-                    Code = courseCode,
-                    Name = "Calculus",
-                    Credit = 4,
-                    Description = "Foundation of Calculus",
-                    Lecturer = "David Teece",
+                    Items = listCourses
                 },
                 new CourseCanceled
                 {
-                    Code = courseCode2,
-                    Name = "Algorithm Design",
-                    Credit = 2,
-                    Description = "Introduction of Algorithm",
-                    Lecturer = "Michael Page",
+                    Items = listCourses2
                 }
                 )
                 );

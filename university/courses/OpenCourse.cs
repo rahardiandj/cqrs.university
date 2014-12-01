@@ -9,6 +9,7 @@ namespace university.courses
     public class OpenCourse
     {
         public Guid Id { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public int Credit { get; set; }
         public string Type { get; set; }

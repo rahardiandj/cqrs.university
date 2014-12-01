@@ -15,15 +15,18 @@ namespace university.courses
         IHandleCommand<CloseCourse>,
         IHandleCommand<CancelCourse>,
         IHandleCommand<ModifyCoursePlan>,
-        IApplyEvent<CourseOpened>
+        IApplyEvent<CourseOpened>,
+        IApplyEvent<CourseTaken>
     {
         private bool open;
-
+        private List<CourseInfo> coursePlan = new List<CourseInfo>();
+        private List<string> courseopenedcode = new List<string>();
+        private List<CoursePlan> courseplans = new List<CoursePlan>();
         public IEnumerable Handle(OpenCourse c)
         {
             yield return new CourseOpened
             {
-                Id = c.Id,
+                Code = c.Code,
                 Credit = c.Credit,
                 Name = c.Name,
                 Type = c.Type
@@ -32,21 +35,18 @@ namespace university.courses
 
         public IEnumerable Handle(TakeCourse c)
         {
-            if (!open)
+            if (!isAllOpen(c.Items))
                 throw new CourseNotOpen();
             yield return new CourseTaken
             {
-                Code = c.Code,
-                Credit = c.Credit,
-                Name = c.Name,
-                Description = c.Description,
-                Lecturer = c.Lecturer
+                Id = c.Id,
+                Items = c.Items
             };
         }
 
         public void Apply(CourseOpened e)
         {
-            open = true;
+            courseopenedcode.Add(e.Code);
         }
 
         public IEnumerable Handle(CloseCourse c)
@@ -64,42 +64,54 @@ namespace university.courses
 
         public IEnumerable Handle(CancelCourse c)
         {
-            if (!open)
+            if (!isAllOpen(c.Items))
                 throw new CourseNotOpen();
             yield return new CourseCanceled
             {
-                Code = c.Code,
-                Credit = c.Credit,
-                Name = c.Name,
-                Description = c.Description,
-                Lecturer = c.Lecturer
+                Id = c.Id,
+                Items = c.Items
             };
         }
 
         public IEnumerable Handle(ModifyCoursePlan c)
         {
             var added = c.Items.Where(i => i.IsAdded).ToList();
+            if (!isAllOpen(c.Items))
+                throw new CourseNotOpen();
             if (added.Any())
             {
                 yield return new CourseTaken
                 {
-                    Code= added.FirstOrDefault().Code,
-                    Credit = added.FirstOrDefault().Credit,
-                    Description = added.FirstOrDefault().Description,
-                    Lecturer = added.FirstOrDefault().Lecturer,
-                    Name = added.FirstOrDefault().Name
+                    Items = added
                 };
             }
             var canceled = c.Items.Where(i => !i.IsAdded).ToList();
             if (canceled.Any())
                 yield return new CourseCanceled
                 {
-                    Code = canceled.FirstOrDefault().Code,
-                    Credit = canceled.FirstOrDefault().Credit,
-                    Description = canceled.FirstOrDefault().Description,
-                    Lecturer = canceled.FirstOrDefault().Lecturer,
-                    Name = canceled.FirstOrDefault().Name
+                    Items = canceled
                 };
+        }
+
+        public void Apply(CourseTaken e)
+        {
+            coursePlan.AddRange(e.Items);
+        }
+
+        private void updateCoursePlan(ModifyCoursePlan e)
+        {
+            var code = e.Items.Select(x => x.Code).ToList();
+            courseplans.Add(new CoursePlan { StudentId = e.StudentId, CoursesCode = code });
+        }
+
+        private bool isAllOpen(List<CourseInfo> course)
+        {
+            var code = course.Select(e => e.Code).ToList();
+            var courses = code.Except(courseopenedcode);
+            if ((courses.Any())||(!courseopenedcode.Any()))
+                return false;
+            else
+                return true;
         }
     }
 }
