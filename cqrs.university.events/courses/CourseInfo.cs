@@ -15,4 +15,10 @@ namespace cqrs.university.events.courses
         public string Description { get; set; }
         public bool IsAdded { get; set; }
     }
+
+    public class CoursePlan
+    {
+        public string StudentId { get; set; }
+        public List<string> CoursesCode { get; set; }
+    }
 }
