@@ -9,6 +9,7 @@ namespace cqrs.university.events.courses
     public class CourseTaken
     {
         public Guid Id { get; set; }
+        public string StudentId { get; set; }
         public List<CourseInfo> Items { get; set; }
     }
 }

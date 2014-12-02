@@ -43,6 +43,7 @@
     <Compile Include="courses\OpenCourseQueries.cs" />
     <Compile Include="models\CourseItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="stab\StaticData.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cqrs.university.events\cqrs.university.events.csproj">

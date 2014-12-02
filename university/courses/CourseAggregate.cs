@@ -40,6 +40,7 @@ namespace university.courses
             yield return new CourseTaken
             {
                 Id = c.Id,
+                StudentId = c.StudentId,
                 Items = c.Items
             };
         }
@@ -69,6 +70,7 @@ namespace university.courses
             yield return new CourseCanceled
             {
                 Id = c.Id,
+                StudentId = c.StudentId,
                 Items = c.Items
             };
         }
@@ -82,6 +84,7 @@ namespace university.courses
             {
                 yield return new CourseTaken
                 {
+                    StudentId = c.StudentId,
                     Items = added
                 };
             }
@@ -89,6 +92,7 @@ namespace university.courses
             if (canceled.Any())
                 yield return new CourseCanceled
                 {
+                    StudentId = c.StudentId,
                     Items = canceled
                 };
         }

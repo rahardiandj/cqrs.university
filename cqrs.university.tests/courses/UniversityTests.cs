@@ -98,11 +98,13 @@ namespace cqrs.university.tests.courses
                     When(new TakeCourse
                     {
                         Id = testId,
+                        StudentId = "1001201",
                         Items = listCourses
                     }),
                     Then(new CourseTaken
                     {
                         Id = testId,
+                        StudentId = "1001201",
                         Items = listCourses
                     }
                     )
@@ -118,6 +120,7 @@ namespace cqrs.university.tests.courses
                     When(new TakeCourse
                     {
                         Id = testId,
+                        StudentId = "1001201",
                         Items = listCourses
                     }),
                     ThenFailWith<CourseNotOpen>()
@@ -186,11 +189,13 @@ namespace cqrs.university.tests.courses
                     When(new CancelCourse
                     {
                         Id = testId,
+                        StudentId = "1001201",
                         Items = listCourses2
                     }),
                     Then(new CourseCanceled
                     {
                         Id = testId,
+                        StudentId = "1001201",
                         Items = listCourses2
                     }
                     )
@@ -234,15 +239,17 @@ namespace cqrs.university.tests.courses
                 When(new ModifyCoursePlan
                 {
                     Id = testId,
-                    StudentId = "113080003",
+                    StudentId = "1001201",
                     Items = new List<CourseInfo> { testCourse1, testCourse2 }
                 }),
                 Then(new CourseTaken
                 {
+                    StudentId = "1001201",
                     Items = listCourses
                 },
                 new CourseCanceled
                 {
+                    StudentId = "1001201",
                     Items = listCourses2
                 }
                 )

@@ -10,8 +10,9 @@ namespace cqrs.university.queries.courses
 {
     public interface IOpenCourseQueries
     {
-        List<CourseItem> GetAllCourseCode();
-        List<CourseItem> GetAllActiveCourseCode();
-        CourseInfo GetCourseDetail(string code);
+        List<CourseItem> GetAllCourse();
+        List<CourseItem> GetAllActiveCourse();
+        CourseItem GetCourseDetail(string code);
+        CoursePlan GetCourseByStudentId(string studentId);
     }
 }

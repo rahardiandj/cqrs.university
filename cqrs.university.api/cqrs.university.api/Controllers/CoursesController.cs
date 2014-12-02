@@ -8,8 +8,9 @@ using university.courses;
 
 namespace cqrs.university.api.Controllers
 {
+    [RoutePrefix("api/Courses")]
     public class CoursesController : ApiController
-    {
+    {      
         [HttpPost]
         public IHttpActionResult Open(OpenCourse cmd)
         {
@@ -21,7 +22,15 @@ namespace cqrs.university.api.Controllers
         [HttpGet]
         public IHttpActionResult Active()
         {
-            var x = Domain.OpenCourseQueries.GetAllActiveCourseCode();
+            var x = Domain.OpenCourseQueries.GetAllActiveCourse();
+            return Ok(x);
+        }
+
+        [Route("All")]
+        [HttpGet]
+        public IHttpActionResult All()
+        {
+            var x = Domain.OpenCourseQueries.GetAllCourse();
             return Ok(x);
         }
     }

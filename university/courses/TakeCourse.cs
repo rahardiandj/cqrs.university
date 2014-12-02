@@ -10,6 +10,7 @@ namespace university.courses
     public class TakeCourse
     {
         public Guid Id { get; set; }
+        public string StudentId { get; set; }
         public List<CourseInfo> Items { get; set; }
     }
 }
