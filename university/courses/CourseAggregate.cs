@@ -45,11 +45,6 @@ namespace university.courses
             };
         }
 
-        public void Apply(CourseOpened e)
-        {
-            courseopenedcode.Add(e.Code);
-        }
-
         public IEnumerable Handle(CloseCourse c)
         {
             if (!open)
@@ -116,6 +111,11 @@ namespace university.courses
                 return false;
             else
                 return true;
+        }
+
+        public void Apply(CourseOpened e)
+        {
+            courseopenedcode.Add(e.Code);
         }
     }
 }

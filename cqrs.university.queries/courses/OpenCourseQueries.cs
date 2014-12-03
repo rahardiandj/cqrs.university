@@ -27,11 +27,6 @@ namespace cqrs.university.queries.courses
         private Courses courseList = new Courses();
         private List<CourseItem> activeCourseList = new List<CourseItem>();
 
-        public class CoursePlan
-        {
-            public string StudentId { get; set; }
-            public List<string> CoursesCode { get; set; }
-        }
 
         private List<CoursePlan> coursePlanList = new List<CoursePlan>();
 

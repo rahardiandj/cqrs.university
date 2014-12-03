@@ -14,7 +14,7 @@ namespace cqrs.university.api.Controllers
         [HttpPost]
         public IHttpActionResult Open(OpenCourse cmd)
         {
-            cmd.Id = Guid.NewGuid();
+            cmd.Id = new Guid("08AD2A6C-F23A-47FA-99FF-EC9B6F7FF0C8");
             Domain.Dispatcher.SendCommand(cmd);
             return Ok();
         }
